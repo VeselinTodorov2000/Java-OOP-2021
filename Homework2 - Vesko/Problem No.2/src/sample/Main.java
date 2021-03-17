@@ -27,8 +27,10 @@ public class Main extends Application {
         double startLenght = 30;
         double originalLenght = startLenght;
 
+        //draw spiral
         for(int i = 0; i < 5; i++)
         {
+            //lines to down and right
             l = new Line(startX, startY, startX, startY + startLenght);
             l.setStroke(Color.RED);
             group.getChildren().add(l);
@@ -39,8 +41,10 @@ public class Main extends Application {
             group.getChildren().add(l);
             startX -= startLenght;
 
+            //make line longer
             startLenght += originalLenght;
 
+            //lines to up and left
             l = new Line(startX, startY, startX, startY - startLenght);
             l.setStroke(Color.RED);
             group.getChildren().add(l);

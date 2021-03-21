@@ -7,6 +7,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.time.LocalDate;
 
 public class Main extends Application {
@@ -39,8 +40,7 @@ public class Main extends Application {
 
     private void printDaysOfWeek() {    //printing names of the days in the week
         String daysOfWeek[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-        for (int i = 0; i < daysOfWeek.length; i++)
-        {
+        for (int i = 0; i < daysOfWeek.length; i++) {
             Text dayOfWeek = new Text(space * (i + 1), space, daysOfWeek[i]);
             dayOfWeek.setStrokeWidth(1);
             dayOfWeek.setStroke(Color.BLACK);
@@ -48,15 +48,7 @@ public class Main extends Application {
         }
     }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        group = new Group();
-        scene = new Scene(group, 450, 300);
-        space = 40; //distance between numbers of days and names of the days in the week in the calendar
-
-        readInputMonthAndYear();    //reading input
-        printDaysOfWeek();
-
+    private void printChosenMonth() {
         LocalDate dateToPrint = LocalDate.of(year, month, 1);   //first date of the month from the input
         int weekOfMonth = 1;    //number of week of the month
         while (dateToPrint.getMonthValue() == month)    //iterating through each day of the month
@@ -78,6 +70,17 @@ public class Main extends Application {
 
             dateToPrint = dateToPrint.plusDays(1);  //going on the next day
         }
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        group = new Group();
+        scene = new Scene(group, 450, 300);
+        space = 40; //distance between numbers of days and names of the days in the week in the calendar
+
+        readInputMonthAndYear();    //reading input
+        printDaysOfWeek();
+        printChosenMonth();
 
         primaryStage.setTitle("Calendar for the chosen month");
         primaryStage.setScene(scene);

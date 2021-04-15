@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Geometry">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.base" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.controls" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.fxml" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.graphics" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.media" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.swing" />
+      <root url="jar://$PROJECT_DIR$/libs/Geometry.jar!/javafx.web" />
+    </SOURCES>
+  </library>
+</component>

@@ -35,7 +35,7 @@ public class RouteCipher {
     }
 
     //method for encrypt with a negative key
-    String encryptNegative(char[][] grid, int startX, int startY, int upX, int upY, String encrypted)
+    private String encryptNegative(char[][] grid, int startX, int startY, int upX, int upY, String encrypted)
     {
         //base case
         if(startX < upX || startY < upY)
@@ -137,38 +137,44 @@ public class RouteCipher {
         return decryptGridNegative(grid, startX - 1, startY - 1, upX + 1, upY + 1, cipher, index);
     }
 
+    //constructor
     public RouteCipher(int key)
     {
         setKey(key);
     }
 
+    //getter for key
     public int getKey()
     {
         return this.key;
     }
 
+    //setter for key
     public void setKey(int key)
     {
         this.key = key;
     }
 
+    //encrypt method
     public String encrypt(String plainText) {
         char[] plainTextIntoChars = plainText.toCharArray();
         char grid[][] = new char[(int) Math.ceil(plainText.length()/ (double) Math.abs(key))][Math.abs(key)];
+
         int index = 0; //marks the index of symbol in plainText array
+
         for(int row = 0; row < grid.length; row++)
+        {
+            for(int col = 0; col < grid[row].length; col++)
+            {
+                if(index >= plainTextIntoChars.length)
                 {
-                    for(int col = 0; col < grid[row].length; col++)
-                    {
-                        if(index >= plainTextIntoChars.length)
-                        {
-                            grid[row][col] = 'X';
-                        }
-                        else {
-                            grid[row][col] = plainTextIntoChars[index];
-                            index++;
-                        }
-                    }
+                    grid[row][col] = 'X';
+                }
+                else {
+                    grid[row][col] = plainTextIntoChars[index];
+                    index++;
+                }
+            }
         }
 
         if(key > 0)
@@ -181,9 +187,12 @@ public class RouteCipher {
         }
     }
 
-    public String decrypt(String cipherText) {
+    //decrypt method
+    public String decrypt(String cipherText)
+    {
         char[] cipherTextIntoChars = cipherText.toCharArray();
         char grid[][] = new char[(int) Math.ceil(cipherText.length()/ (double) Math.abs(key))][Math.abs(key)];
+
         if(key > 0)
         {
             grid = decryptGridPositive(grid, 0, 0, grid.length, grid[0].length, cipherTextIntoChars, 0);
@@ -192,8 +201,8 @@ public class RouteCipher {
         {
             grid = decryptGridNegative(grid, grid[0].length - 1, grid.length - 1, 0, 0, cipherTextIntoChars, 0);
         }
-        String decrypted = "";
 
+        String decrypted = "";
         for(int row = 0; row < grid.length; row++)
         {
             for(int col = 0; col < grid[row].length; col++)
@@ -211,6 +220,7 @@ public class RouteCipher {
         return decrypted;
     }
 
+    //toString method
     public String toString()
     {
         return String.format("The key is %d", key);

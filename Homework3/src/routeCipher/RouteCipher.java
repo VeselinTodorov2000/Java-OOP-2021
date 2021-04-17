@@ -5,64 +5,64 @@ public class RouteCipher {
     private int key;
 
     //method for encrypt with a positive key
-    private String encryptPositive(char[][] grid, int startX, int startY, int rows, int cols, String encrypted)
+    private String encryptPositive(char[][] grid, int startX, int startY, int rows, int cols, char[] encrypted, int index)
     {
         //base case
         if(startX >= rows || startY >= cols)
         {
-            return encrypted;
+            return new String(encrypted);
         }
 
         //first column
         for (int i = startY; i < rows; i++)
-            encrypted = String.format("%s%c", encrypted, grid[i][startX]);
+            encrypted[index++] = grid[i][startX];
 
         //last row
         for (int i = startX + 1; i < cols; i++)
-            encrypted = String.format("%s%c", encrypted ,grid[rows - 1][i]);
+            encrypted[index++] = grid[rows - 1][i];
 
         //last column if possible
         if ((cols - 1) != startX)
             for (int i = rows - 2; i >= startY; i--)
-                encrypted = String.format("%s%c", encrypted, grid[i][cols - 1]);
+                encrypted[index++] = grid[i][cols - 1];
 
         //first row if possible
         if ((rows - 1) != startY)
             for (int i = cols - 2; i > startX; i--)
-                encrypted = String.format("%s%c", encrypted, grid[startY][i]);
+                encrypted[index++] = grid[startY][i];
 
-        return encryptPositive(grid, startX + 1, startY + 1, rows - 1, cols - 1, encrypted);
+        return encryptPositive(grid, startX + 1, startY + 1, rows - 1, cols - 1, encrypted, index);
     }
 
     //method for encrypt with a negative key
-    private String encryptNegative(char[][] grid, int startX, int startY, int upX, int upY, String encrypted)
+    private String encryptNegative(char[][] grid, int startX, int startY, int upX, int upY, char[] encrypted, int index)
     {
         //base case
         if(startX < upX || startY < upY)
         {
-            return encrypted;
+            return new String(encrypted);
         }
 
         //last column
         for (int i = startY; i >= upY; i--)
-            encrypted = String.format("%s%c", encrypted, grid[i][startX]);
+            encrypted[index++] = grid[i][startX];
 
         //first row
         for (int i = startX - 1; i >= upX; i--)
-            encrypted = String.format("%s%c", encrypted, grid[upY][i]);
+            encrypted[index++] = grid[upY][i];
 
         //first column if possible
         if (upX != startX)
             for (int i = upY + 1; i < startY; i++)
-                encrypted = String.format("%s%c", encrypted, grid[i][upX]);
+                encrypted[index++] = grid[i][upX];
 
         //last row if possible
         if (upY != startY)
             for (int i = upX; i < startX; i++) {
-                encrypted = String.format("%s%c", encrypted, grid[startY][i]);
+                encrypted[index++] = grid[startY][i];
             }
 
-        return encryptNegative(grid, startX - 1, startY - 1, upX + 1, upY + 1, encrypted);
+        return encryptNegative(grid, startX - 1, startY - 1, upX + 1, upY + 1, encrypted, index);
     }
 
     //method to decrypt if key is positive
@@ -152,7 +152,7 @@ public class RouteCipher {
     //setter for key
     public void setKey(int key)
     {
-        this.key = key;
+        this.key = key != 0 ? key : 1;
     }
 
     //encrypt method
@@ -179,11 +179,11 @@ public class RouteCipher {
 
         if(key > 0)
         {
-            return encryptPositive(grid, 0, 0, grid.length, grid[0].length,"");
+            return encryptPositive(grid, 0, 0, grid.length, grid[0].length, new char[grid.length * grid[0].length],0);
         }
         else
         {
-            return encryptNegative(grid, grid[0].length-1, grid.length-1, 0, 0, "");
+            return encryptNegative(grid, grid[0].length-1, grid.length-1, 0, 0, new char[grid.length * grid[0].length], 0);
         }
     }
 
@@ -193,6 +193,7 @@ public class RouteCipher {
         char[] cipherTextIntoChars = cipherText.toCharArray();
         char grid[][] = new char[(int) Math.ceil(cipherText.length()/ (double) Math.abs(key))][Math.abs(key)];
 
+        //create grid from ciphertext
         if(key > 0)
         {
             grid = decryptGridPositive(grid, 0, 0, grid.length, grid[0].length, cipherTextIntoChars, 0);
@@ -202,27 +203,32 @@ public class RouteCipher {
             grid = decryptGridNegative(grid, grid[0].length - 1, grid.length - 1, 0, 0, cipherTextIntoChars, 0);
         }
 
-        String decrypted = "";
+        //create container for decrypted text
+        char[] decrypted = new char[grid.length * grid[0].length];
+        int index = 0;
+
+        //fill container and return it as a string
         for(int row = 0; row < grid.length; row++)
         {
             for(int col = 0; col < grid[row].length; col++)
             {
                 if(grid[row][col] == 'X')
                 {
-                    return decrypted;
+                    return new String(decrypted);
                 }
-                else {
-                    decrypted = String.format("%s%c", decrypted ,grid[row][col]);
+                else
+                    {
+                    decrypted[index++] = grid[row][col];
                 }
             }
         }
 
-        return decrypted;
+        return new String(decrypted);
     }
 
     //toString method
     public String toString()
     {
-        return String.format("The key is %d", key);
+        return new String("The key is " + key);
     }
 }

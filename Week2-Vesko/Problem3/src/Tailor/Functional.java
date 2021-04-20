@@ -16,7 +16,7 @@ public class Functional {
     } //end of method factorial
 
     public static void main(String[] args) {
-        int x; //variable to hold x
+        double x; //variable to hold x
         double currentMember; //holds current member of sequence
         double nextMember; //holds next member of sequence
         double result = 0; //holds the e^x
@@ -24,7 +24,7 @@ public class Functional {
 
         Scanner input = new Scanner(System.in); //declare Scanner
         System.out.print("Enter x: "); //prompt for x
-        x = input.nextInt(); //read x from scanner
+        x = input.nextDouble(); //read x from scanner
 
         currentMember = 1; //set currentMember a value of x^0 / 0!
         nextMember = x; //set nextMember a value of x^1 / 1!
@@ -40,12 +40,13 @@ public class Functional {
 
             if(Math.abs(currentMember - nextMember) < 0.001) //check if difference between two members is less than 0,001
             {
+                result += nextMember;
                 break; //if true break
             }
 
             i++; //increase counting variable
         }
 
-        System.out.printf("x = %d, e^x = %f", x, result); //print result
+        System.out.printf("x = %.2f, e^x = %f", x, result); //print result
     }
 }

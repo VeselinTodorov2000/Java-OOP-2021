@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="feb74bb0-75ad-4233-ab26-f9f957ac18f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Week2-Vesko/Problem4/src/Prob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week2-Vesko/Project5/src/SinCos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week2-Vesko/Project5/src/Task5a/Esponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Week2-Vesko/Project5/src/Task5b/PI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menu/ComputeByMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menu/MenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Week2-Vesko/Problem3/src/Tailor/Functional.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week2-Vesko/Problem3/src/Tailor/Functional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Task2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Task2/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Task2/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Task2/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,17 +45,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MenuTest" />
@@ -91,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618924823935</updated>
       <workItem from="1618924826247" duration="1375000" />
+      <workItem from="1618947575947" duration="34000" />
     </task>
     <servers />
   </component>
@@ -107,5 +77,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

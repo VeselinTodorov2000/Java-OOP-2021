@@ -36,6 +36,7 @@ public class Hamming
         System.out.print("Enter second number: ");
         secondNumber = input.nextByte();
 
+        System.out.printf("Hamming distance between %d and %d is: ", firstNumber, secondNumber);
         System.out.println(hammingDistance(firstNumber, secondNumber));
         System.out.print("First number in binary: ");
         print(firstNumber);

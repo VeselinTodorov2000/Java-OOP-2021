@@ -1,0 +1,17 @@
+.grid {
+    -fx-background-color: #dfc434;
+    -fx-padding: 8;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+#label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 40;
+    -fx-text-fill: #15009e;
+}
+
+#btnSignup
+{
+    -fx-text-fill: #dfc444;
+}
